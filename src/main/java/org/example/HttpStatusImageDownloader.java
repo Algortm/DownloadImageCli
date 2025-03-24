@@ -13,7 +13,7 @@ public class HttpStatusImageDownloader {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-        try (InputStream inputStream= new OkHttpClient().newCall(request).execute().body().byteStream()){
+        try (InputStream inputStream = new OkHttpClient().newCall(request).execute().body().byteStream()){
             File file = new File("Image"+String.valueOf(code)+".jpg");
             BufferedImage img = ImageIO.read(inputStream);
             ImageIO.write(img, "jpg", file);
